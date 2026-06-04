@@ -1,0 +1,77 @@
+// College Discovery Platform — Prisma Schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id            String         @id @default(cuid())
+  email         String         @unique
+  name          String?
+  password      String
+  createdAt     DateTime       @default(now())
+  savedColleges SavedCollege[]
+}
+
+model College {
+  id                  String         @id @default(cuid())
+  name                String
+  slug                String         @unique
+  location            String
+  state               String
+  type                String         // "Government" | "Private" | "Deemed"
+  description         String
+  established         Int
+  rating              Float
+  reviewCount         Int            @default(0)
+  feesMin             Int
+  feesMax             Int
+  placementPercentage Float
+  averagePackage      Float
+  highestPackage      Float
+  topRecruiters       String         @default("[]") // JSON string array
+  tags                String         @default("[]") // JSON string array
+  imageUrl            String?
+  courses             Course[]
+  reviews             Review[]
+  savedBy             SavedCollege[]
+  createdAt           DateTime       @default(now())
+}
+
+model Course {
+  id          String  @id @default(cuid())
+  name        String
+  duration    String
+  fees        Int
+  seats       Int
+  eligibility String
+  collegeId   String
+  college     College @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  rating    Float
+  comment   String
+  userName  String
+  collegeId String
+  college   College  @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}
+
+model SavedCollege {
+  id        String   @id @default(cuid())
+  userId    String
+  collegeId String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  college   College  @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, collegeId])
+}
