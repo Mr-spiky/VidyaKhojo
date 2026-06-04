@@ -1,67 +1,78 @@
-# UIGen
+<div align="center">
+  <img src="public/images/vidyakhoj_logo.png" alt="VidyaKhoj Logo" width="150" style="border-radius: 20px; margin-bottom: 20px;" />
 
-AI-powered React component generator with live preview.
+  # 🎓 VidyaKhoj
+  
+  **The ultimate GenZ flex for college hunting. No cap. 🧢**
 
-## Prerequisites
+  [Features](#-features-that-actually-slap) • [Tech Stack](#-tech-stack-the-sauce) • [Getting Started](#-getting-started) • [Contributing](#-contributing)
+</div>
 
-- Node.js 18+
-- npm
+---
 
-## Setup
+## 🚀 Welcome to VidyaKhoj
+Tired of boomer websites to find your dream college? Same. 
 
-1. **Optional** Edit `.env` and add your Anthropic API key:
+Welcome to **VidyaKhoj** — a high-aesthetic, ultra-smooth, and trust-verified platform designed for the next generation of students. We’re serving *main character energy* for your career journey.
 
-```
-ANTHROPIC_API_KEY=your-api-key-here
-```
+Whether you're hunting for top-tier engineering campuses, aesthetic libraries, or just trying to beat admission deadlines before the FOMO hits, we've got you covered.
 
-The project will run without an API key. Rather than using a LLM to generate components, static code will be returned instead.
+---
 
-2. Install dependencies and initialize database
+## ✨ Features That Actually Slap
+- 🕒 **Live Deadline Ticker:** Never miss an entrance exam (JEE, CAT, NEET) with our dynamic, interactive pill ticker.
+- 💅 **Immaculate UI/UX:** Powered by custom micro-animations, `ElectricBorder` canvas effects, and `BorderGlow` cards that literally shine.
+- 💯 **Trust Bar & Verified Stats:** High-trust indicators, real-time platform metrics, and NAAC/UGC accredited partner banners to keep it 100% genuine.
+- 🎯 **Vibe Check Your Campus:** GenZ-tailored quick categories. Find your tribe, not just a college.
+- 📱 **Mobile-First & Responsive:** Because who even uses a laptop to browse anymore?
 
+---
+
+## 🛠 Tech Stack (The Sauce)
+Built with the absolute best modern web technologies:
+- **Framework:** [Next.js 15](https://nextjs.org/) (App Router)
+- **Frontend:** [React 19](https://react.dev/), TypeScript
+- **Styling:** Tailwind CSS + Custom CSS Keyframes & Canvas Magic
+- **UI Components:** Custom animated React components (Spotlight effects, Glowing borders)
+- **Database:** Prisma with SQLite
+
+---
+
+## 🏎 Getting Started
+
+Ready to run this locally? Bet.
+
+### 1. Clone the repo
 ```bash
-npm run setup
+git clone https://github.com/Mr-spiky/VidyaKhojo.git
+cd "Career Platform"
 ```
 
-This command will:
+### 2. Install Dependencies
+```bash
+npm install
+```
 
-- Install all dependencies
-- Generate Prisma client
-- Run database migrations
-
-## Running the Application
-
-### Development
-
+### 3. Run the Development Server
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
+### 4. Experience the Magic
+Open [http://localhost:3000](http://localhost:3000) with your browser and vibe with the platform.
 
-## Usage
+---
 
-1. Sign up or continue as anonymous user
-2. Describe the React component you want to create in the chat
-3. View generated components in real-time preview
-4. Switch to Code view to see and edit the generated files
-5. Continue iterating with the AI to refine your components
+## 🤝 Contributing
+Want to add some rizz to the codebase? PRs are always welcome! 
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## Features
+---
 
-- AI-powered component generation using Claude
-- Live preview with hot reload
-- Virtual file system (no files written to disk)
-- Syntax highlighting and code editor
-- Component persistence for registered users
-- Export generated code
-
-## Tech Stack
-
-- Next.js 15 with App Router
-- React 19
-- TypeScript
-- Tailwind CSS v4
-- Prisma with SQLite
-- Anthropic Claude AI
-- Vercel AI SDK
+<div align="center">
+  Made with 🤍 and lots of caffeine by <a href="https://github.com/Mr-spiky">Mr-spiky</a> & Team.
+</div>
