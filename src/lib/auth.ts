@@ -1,4 +1,4 @@
-import "server-only";
+
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 import { NextRequest } from "next/server";
@@ -25,7 +25,7 @@ export async function createSession(userId: string, email: string) {
     .setIssuedAt()
     .sign(JWT_SECRET);
 
-  const cookieStore = await cookies();
+  const cookieStore = cookies();
   cookieStore.set(COOKIE_NAME, token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
@@ -36,7 +36,7 @@ export async function createSession(userId: string, email: string) {
 }
 
 export async function getSession(): Promise<SessionPayload | null> {
-  const cookieStore = await cookies();
+  const cookieStore = cookies();
   const token = cookieStore.get(COOKIE_NAME)?.value;
 
   if (!token) {
@@ -46,13 +46,13 @@ export async function getSession(): Promise<SessionPayload | null> {
   try {
     const { payload } = await jwtVerify(token, JWT_SECRET);
     return payload as unknown as SessionPayload;
-  } catch (error) {
+  } catch {
     return null;
   }
 }
 
 export async function deleteSession() {
-  const cookieStore = await cookies();
+  const cookieStore = cookies();
   cookieStore.delete(COOKIE_NAME);
 }
 
@@ -68,7 +68,7 @@ export async function verifySession(
   try {
     const { payload } = await jwtVerify(token, JWT_SECRET);
     return payload as unknown as SessionPayload;
-  } catch (error) {
+  } catch {
     return null;
   }
 }
